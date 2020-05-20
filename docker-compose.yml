@@ -1,0 +1,10 @@
+version: "3"
+services:
+  backend:
+    container_name: backend
+    image: bartleby2718/mod_wsgi-docker-simple
+    volumes:
+      - ./backend:/app
+    ports:
+      - "8000:8000"
+    command: bash setup.sh
