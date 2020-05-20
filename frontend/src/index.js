@@ -1,12 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import App from "./App";
+import Category from "./Category";
+import Post from "./Post";
+import Comment from "./Comment";
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Category id="1" />
+    <Category id="2" />
+    <Post id="1" />
   </React.StrictMode>,
   document.getElementById("root")
 );
