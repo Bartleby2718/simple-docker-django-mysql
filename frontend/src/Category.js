@@ -5,27 +5,8 @@ class Category extends React.Component {
     super(props);
     this.state = {
       id: props.id,
-      name: "",
+      name: props.name,
     };
-  }
-
-  componentDidMount() {
-    const id = this.state.id;
-    fetch(`http://localhost:8000/api/categories/${id}/`)
-      .then((res) => res.json())
-      .then(
-        (result) => {
-          this.setState({
-            name: result.name,
-          });
-        },
-        (error) => {
-          console.log(error);
-          this.setState({
-            name: "Error fetching name.",
-          });
-        }
-      );
   }
 
   render() {

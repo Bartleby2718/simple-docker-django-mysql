@@ -3,12 +3,14 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Category from "./Category";
+import CategoryList from "./CategoryList";
 import CategoryCreateForm from "./CategoryCreateForm";
 import Post from "./Post";
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
   <React.StrictMode>
+    <CategoryList></CategoryList>
     <CategoryCreateForm />
     <Category id="1" />
     <Category id="2" />
