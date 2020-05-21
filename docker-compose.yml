@@ -1,5 +1,17 @@
 version: "3"
 services:
+  database:
+    container_name: database
+    image: postgres:12.3
+    environment:
+      POSTGRES_DB: "mydatabase"
+      POSTGRES_USER: "mydatabaseuser"
+      POSTGRES_PASSWORD: "mypassword"
+    networks:
+      - project
+      - storage
+    expose:
+      - "5432"
   backend:
     container_name: backend
     image: bartleby2718/mod_wsgi-docker-simple
@@ -7,6 +19,9 @@ services:
       - ./backend:/app
     networks:
       - project
+      - storage
+    depends_on:
+      - database
     ports:
       - "8000:8000"
     command: bash setup.sh
@@ -28,3 +43,4 @@ services:
     command: sh /app/setup.sh
 networks:
   project:
+  storage:
