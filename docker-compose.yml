@@ -27,7 +27,7 @@ services:
     command: bash setup.sh
   frontend:
     container_name: frontend
-    image: node:alpine
+    image: bartleby2718/react-scripts
     volumes:
       - ./frontend:/app
       - /app/node_modules/
