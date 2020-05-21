@@ -1,3 +1,5 @@
+apt-get update
+apt-get install -y --no-install-recommends default-libmysqlclient-dev
 pip install mod-wsgi==4.7.1
 pip install -r requirements.txt
 python manage.py makemigrations

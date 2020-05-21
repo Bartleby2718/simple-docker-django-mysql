@@ -2,16 +2,17 @@ version: "3"
 services:
   database:
     container_name: database
-    image: postgres:12.3
+    image: mysql:8.0
     environment:
-      POSTGRES_DB: "mydatabase"
-      POSTGRES_USER: "mydatabaseuser"
-      POSTGRES_PASSWORD: "mypassword"
+      MYSQL_DATABASE: "mydatabase"
+      MYSQL_USER: "mydatabaseuser"
+      MYSQL_PASSWORD: "mypassword"
+      MYSQL_ROOT_PASSWORD: "verysecure"
     networks:
       - project
-      - storage
     expose:
-      - "5432"
+      - "3306"
+    command: --default-authentication-plugin=mysql_native_password
   backend:
     container_name: backend
     image: bartleby2718/mod_wsgi-docker-simple
