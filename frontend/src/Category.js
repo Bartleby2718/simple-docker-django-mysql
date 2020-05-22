@@ -7,9 +7,18 @@ class Category extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      name: "",
       showingModal: false,
     };
   }
+
+  componentDidMount = () => {
+    fetch(`http://localhost:8000/api/categories/${this.props.id}/`)
+      .then((res) => res.json())
+      .then((response) => {
+        this.setState({ name: response.name });
+      });
+  };
 
   handleShow = (e) => {
     this.setState({ showingModal: true });
@@ -27,7 +36,7 @@ class Category extends React.Component {
 
   render() {
     const id = this.props.id;
-    const name = this.props.name;
+    const name = this.state.name;
     return (
       <ListGroup.Item style={{ width: "40rem" }}>
         <Button variant="Light" style={{ width: "20rem" }}>
