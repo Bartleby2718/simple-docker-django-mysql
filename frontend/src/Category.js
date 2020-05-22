@@ -1,23 +1,34 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 import CategoryUpdateModal from "./CategoryUpdateModal";
+import { Link } from "react-router-dom";
 import ListGroup from "react-bootstrap/ListGroup";
 
 class Category extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      id: props.id,
       name: "",
       showingModal: false,
     };
   }
-
-  componentDidMount = () => {
-    fetch(`http://localhost:8000/api/categories/${this.props.id}/`)
+  getCategoryData = (id) => {
+    fetch(`http://localhost:8000/api/categories/${id}/`)
       .then((res) => res.json())
       .then((response) => {
-        this.setState({ name: response.name });
+        this.setState({
+          id: response.id,
+          name: response.name,
+        });
       });
+  };
+  componentWillReceiveProps(newProps) {
+    this.getCategoryData(newProps.id);
+  }
+
+  componentDidMount = () => {
+    this.getCategoryData(this.state.id);
   };
 
   handleShow = (e) => {
@@ -35,13 +46,15 @@ class Category extends React.Component {
   };
 
   render() {
-    const id = this.props.id;
+    const id = this.state.id;
     const name = this.state.name;
     return (
       <ListGroup.Item style={{ width: "40rem" }}>
-        <Button variant="Light" style={{ width: "20rem" }}>
-          <h5>{name}</h5>
-        </Button>
+        <Link to={`/categories/${this.state.id}`}>
+          <Button variant="Light" style={{ width: "20rem" }}>
+            <h5>{name}</h5>
+          </Button>
+        </Link>
         <Button variant="info" onClick={this.handleShow}>
           Update name
         </Button>

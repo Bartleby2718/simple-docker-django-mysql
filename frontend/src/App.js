@@ -17,7 +17,15 @@ function App() {
             <Link to="/categories">Categories</Link>
           </li>
         </ul>
+        <CategoryList />
         <Switch>
+          <Route
+            path="/categories/:id"
+            component={(props) => <Category id={props.match.params.id} />}
+          />
+          <Route path="/categories/">
+            <h3>Please select a category.</h3>
+          </Route>
           <Route path="/categories">
             <CategoryList />
           </Route>
