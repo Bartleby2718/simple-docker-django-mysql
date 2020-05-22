@@ -17,6 +17,14 @@ class PostViewSet(viewsets.ModelViewSet):
     serializer_class = PostSerializer
     permission_classes = [permissions.AllowAny]
 
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        if self.action == 'list':
+            category = self.request.query_params.get('category', None)
+            if category is not None:
+                queryset = queryset.filter(category__id=category)
+        return queryset
+
 
 class CommentViewSet(viewsets.ModelViewSet):
     queryset = Comment.objects.all()
