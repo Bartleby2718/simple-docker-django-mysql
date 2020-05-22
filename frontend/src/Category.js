@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
+import CategoryUpdateModal from "./CategoryUpdateModal";
 
 class Category extends React.Component {
   constructor(props) {
@@ -7,8 +8,17 @@ class Category extends React.Component {
     this.state = {
       id: props.id,
       name: props.name,
+      showingModal: false,
     };
   }
+
+  handleShow = (e) => {
+    this.setState({ showingModal: true });
+  };
+
+  handleClose = (e) => {
+    this.setState({ showingModal: false });
+  };
 
   handleDelete = (id) => {
     fetch(`http://localhost:8000/api/categories/${id}/`, {
@@ -22,6 +32,9 @@ class Category extends React.Component {
     return (
       <div>
         Category ID {id}: {name}
+        <Button variant="info" onClick={this.handleShow}>
+          Update name
+        </Button>
         <Button
           variant="danger"
           onClick={(e) => {
@@ -30,6 +43,12 @@ class Category extends React.Component {
         >
           Delete
         </Button>
+        <CategoryUpdateModal
+          id={id}
+          name={name}
+          showingModal={this.state.showingModal}
+          handleClose={this.handleClose}
+        ></CategoryUpdateModal>
       </div>
     );
   }
