@@ -1,4 +1,5 @@
 import React from "react";
+import Card from "react-bootstrap/Card";
 
 class Post extends React.Component {
   constructor(props) {
@@ -40,12 +41,13 @@ class Post extends React.Component {
     const text = this.state.text;
     const category = this.state.category;
     return (
-      <div>
-        <div>In category {category}</div>
-        <div>ID: {id}</div>
-        <div>Title: {title}</div>
-        <div>Text: {text}</div>
-      </div>
+      <Card style={{ width: "18rem" }}>
+        <Card.Header>In category {this.state.category}</Card.Header>
+        <Card.Body>
+          <Card.Title>{this.state.title}</Card.Title>
+          <Card.Text>{this.state.text}</Card.Text>
+        </Card.Body>
+      </Card>
     );
   }
 }
