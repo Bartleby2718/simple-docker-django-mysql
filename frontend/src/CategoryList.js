@@ -1,6 +1,7 @@
 import React from "react";
 import Category from "./Category";
 import Button from "react-bootstrap/Button";
+import ListGroup from "react-bootstrap/ListGroup";
 
 class CategoryList extends React.Component {
   constructor(props) {
@@ -79,7 +80,8 @@ class CategoryList extends React.Component {
     }
     return (
       <div>
-        {categoryComponents}
+        <h2>Categories</h2>
+        <ListGroup>{categoryComponents}</ListGroup>
         {previousButton}
         <Button disabled>{this.state.currentPage}</Button>
         {nextButton}
