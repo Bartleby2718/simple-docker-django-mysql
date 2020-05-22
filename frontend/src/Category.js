@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 import CategoryUpdateModal from "./CategoryUpdateModal";
+import ListGroup from "react-bootstrap/ListGroup";
 
 class Category extends React.Component {
   constructor(props) {
@@ -28,8 +29,10 @@ class Category extends React.Component {
     const id = this.props.id;
     const name = this.props.name;
     return (
-      <div>
-        Category ID {id}: {name}
+      <ListGroup.Item style={{ width: "40rem" }}>
+        <Button variant="Light" style={{ width: "20rem" }}>
+          <h5>{name}</h5>
+        </Button>
         <Button variant="info" onClick={this.handleShow}>
           Update name
         </Button>
@@ -47,7 +50,7 @@ class Category extends React.Component {
           showingModal={this.state.showingModal}
           handleClose={this.handleClose}
         ></CategoryUpdateModal>
-      </div>
+      </ListGroup.Item>
     );
   }
 }
