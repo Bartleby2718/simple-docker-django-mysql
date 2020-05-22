@@ -6,8 +6,6 @@ class Category extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: props.id,
-      name: props.name,
       showingModal: false,
     };
   }
@@ -27,8 +25,8 @@ class Category extends React.Component {
   };
 
   render() {
-    const id = this.state.id;
-    const name = this.state.name;
+    const id = this.props.id;
+    const name = this.props.name;
     return (
       <div>
         Category ID {id}: {name}
