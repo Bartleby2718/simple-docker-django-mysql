@@ -60,7 +60,6 @@ class CategoryUpdateModal extends React.Component {
               Close
             </Button>
             <Button
-              variant="primary"
               onClick={(e) => {
                 this.handleUpdate(this.props.id, this.state.name);
               }}

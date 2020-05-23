@@ -1,6 +1,4 @@
 from rest_framework import permissions, viewsets
-from rest_framework.decorators import action
-from rest_framework.response import Response
 
 from .models import Category, Post, Comment
 from .serializers import CategorySerializer, PostSerializer, CommentSerializer

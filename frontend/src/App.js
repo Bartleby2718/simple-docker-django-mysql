@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import Category from "./Category";
 import CategoryCreateForm from "./CategoryCreateForm";
 import CategoryList from "./CategoryList";
 import Post from "./Post";
@@ -33,9 +32,6 @@ function App() {
           <Route path="/categories/">
             <h3>Please select a category.</h3>
           </Route>
-          <Route path="/categories">
-            <CategoryList />
-          </Route>
           <Route
             path="/posts/:id"
             component={(props) => (
@@ -46,11 +42,7 @@ function App() {
             )}
           />
           <Route path="/">
-            <CategoryList></CategoryList>
             <CategoryCreateForm />
-            <Category id={1} />
-            <Category id={2} />
-            <Post id={1} />
           </Route>
         </Switch>
       </div>

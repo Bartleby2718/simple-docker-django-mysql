@@ -52,7 +52,7 @@ class CategoryCreateForm extends React.Component {
           />
           <Form.Text className="text-muted">50 characters max</Form.Text>
         </Form.Group>
-        <Button variant="primary" type="submit" onClick={this.handleClick}>
+        <Button type="submit" onClick={this.handleClick}>
           Create
         </Button>
       </Form>
