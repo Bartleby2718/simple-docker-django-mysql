@@ -16,6 +16,7 @@ class CommentSerializer(serializers.ModelSerializer):
 
 
 class PostSerializer(serializers.ModelSerializer):
+    category = CategorySerializer()
     comments = CommentSerializer(
         source='comment_set', many=True, read_only=True)
 
