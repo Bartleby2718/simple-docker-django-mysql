@@ -1,8 +1,8 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
-import CategoryUpdateModal from "./CategoryUpdateModal";
-import { Link } from "react-router-dom";
 import ListGroup from "react-bootstrap/ListGroup";
+import { Link } from "react-router-dom";
+import CategoryUpdateModal from "./CategoryUpdateModal";
 
 class Category extends React.Component {
   constructor(props) {
@@ -13,8 +13,9 @@ class Category extends React.Component {
       showingModal: false,
     };
   }
-  getCategoryData = (id) => {
-    fetch(`http://localhost:8000/api/categories/${id}/`)
+
+  getCategoryData = () => {
+    fetch(`http://localhost:8000/api/categories/${this.state.id}/`)
       .then((res) => res.json())
       .then((response) => {
         this.setState({
@@ -25,7 +26,7 @@ class Category extends React.Component {
   };
 
   componentDidMount = () => {
-    this.getCategoryData(this.state.id);
+    this.getCategoryData();
   };
 
   handleShow = (e) => {
@@ -36,8 +37,8 @@ class Category extends React.Component {
     this.setState({ showingModal: false });
   };
 
-  handleDelete = (id) => {
-    fetch(`http://localhost:8000/api/categories/${id}/`, {
+  handleDelete = () => {
+    fetch(`http://localhost:8000/api/categories/${this.state.id}/`, {
       method: "DELETE",
     }).then(window.location.reload());
   };
@@ -47,7 +48,7 @@ class Category extends React.Component {
     const name = this.state.name;
     return (
       <ListGroup.Item style={{ width: "40rem" }}>
-        <Link to={`/categories/${this.state.id}`}>
+        <Link to={`/categories/${id}`}>
           <Button variant="Light" style={{ width: "20rem" }}>
             <h5>{name}</h5>
           </Button>
@@ -55,12 +56,7 @@ class Category extends React.Component {
         <Button variant="info" onClick={this.handleShow}>
           Update name
         </Button>
-        <Button
-          variant="danger"
-          onClick={(e) => {
-            this.handleDelete(id);
-          }}
-        >
+        <Button variant="danger" onClick={this.handleDelete}>
           Delete
         </Button>
         <CategoryUpdateModal
