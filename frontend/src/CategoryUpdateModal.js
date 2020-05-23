@@ -3,7 +3,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 
-class CategoryUpdateForm extends React.Component {
+class CategoryUpdateModal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -74,4 +74,4 @@ class CategoryUpdateForm extends React.Component {
   }
 }
 
-export default CategoryUpdateForm;
+export default CategoryUpdateModal;
