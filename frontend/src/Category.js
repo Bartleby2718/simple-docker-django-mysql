@@ -23,9 +23,6 @@ class Category extends React.Component {
         });
       });
   };
-  componentWillReceiveProps(newProps) {
-    this.getCategoryData(newProps.id);
-  }
 
   componentDidMount = () => {
     this.getCategoryData(this.state.id);
