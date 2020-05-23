@@ -15,9 +15,9 @@ class CategoryUpdateModal extends React.Component {
     this.setState({ name: e.target.value });
   };
 
-  handleUpdate = (id, name) => {
-    const data = { name: name };
-    fetch(`http://localhost:8000/api/categories/${id}/`, {
+  handleUpdate = () => {
+    const data = { name: this.state.name };
+    fetch(`http://localhost:8000/api/categories/${this.props.id}/`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -59,13 +59,7 @@ class CategoryUpdateModal extends React.Component {
             <Button variant="secondary" onClick={this.props.handleClose}>
               Close
             </Button>
-            <Button
-              onClick={(e) => {
-                this.handleUpdate(this.props.id, this.state.name);
-              }}
-            >
-              Save Changes
-            </Button>
+            <Button onClick={this.handleUpdate}>Save Changes</Button>
           </Modal.Footer>
         </Form>
       </Modal>
