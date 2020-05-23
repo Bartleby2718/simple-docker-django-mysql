@@ -1,6 +1,8 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
+import ListGroup from "react-bootstrap/ListGroup";
 import { Link } from "react-router-dom";
+import Comment from "./Comment";
 
 class Post extends React.Component {
   constructor(props) {
@@ -11,6 +13,7 @@ class Post extends React.Component {
       text: "",
       categoryId: null,
       categoryName: null,
+      comments: [],
     };
   }
 
@@ -25,6 +28,7 @@ class Post extends React.Component {
             text: result.text,
             categoryId: result.category.id,
             categoryName: result.category.name,
+            comments: result.comments,
           });
         },
         (error) => {
@@ -39,6 +43,9 @@ class Post extends React.Component {
   }
 
   render() {
+    let comments = this.state.comments.map((comment) => (
+      <Comment key={comment.id} id={comment.id} text={comment.text} />
+    ));
     return (
       <Card style={{ width: "18rem" }}>
         <Card.Header>
@@ -52,6 +59,7 @@ class Post extends React.Component {
           <Card.Title>{this.state.title}</Card.Title>
           <Card.Text>{this.state.text}</Card.Text>
         </Card.Body>
+        <ListGroup variant="flush">{comments}</ListGroup>
       </Card>
     );
   }
