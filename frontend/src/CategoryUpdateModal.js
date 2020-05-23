@@ -15,7 +15,8 @@ class CategoryUpdateModal extends React.Component {
     this.setState({ name: e.target.value });
   };
 
-  handleUpdate = () => {
+  handleUpdate = (e) => {
+    e.preventDefault();
     const data = { name: this.state.name };
     fetch(`http://localhost:8000/api/categories/${this.props.id}/`, {
       method: "PUT",
@@ -59,7 +60,9 @@ class CategoryUpdateModal extends React.Component {
             <Button variant="secondary" onClick={this.props.handleClose}>
               Close
             </Button>
-            <Button onClick={this.handleUpdate}>Save Changes</Button>
+            <Button type="submit" onClick={this.handleUpdate}>
+              Save Changes
+            </Button>
           </Modal.Footer>
         </Form>
       </Modal>
