@@ -4,6 +4,7 @@ import Category from "./Category";
 import CategoryCreateForm from "./CategoryCreateForm";
 import CategoryList from "./CategoryList";
 import Post from "./Post";
+import PostList from "./PostList";
 
 function App() {
   return (
@@ -21,7 +22,13 @@ function App() {
         <Switch>
           <Route
             path="/categories/:id"
-            component={(props) => <Category id={props.match.params.id} />}
+            component={(props) => (
+              <PostList
+                key={props.match.params.id}
+                categoryId={props.match.params.id}
+                page={1}
+              />
+            )}
           />
           <Route path="/categories/">
             <h3>Please select a category.</h3>
