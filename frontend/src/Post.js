@@ -56,7 +56,9 @@ class Post extends React.Component {
           {this.state.category}
         </Card.Header>
         <Card.Body>
-          <Card.Title>{this.state.title}</Card.Title>
+          <Card.Title>
+            <Link to={`/posts/${this.state.id}`}>{this.state.title}</Link>
+          </Card.Title>
           <Card.Text>{this.state.text}</Card.Text>
         </Card.Body>
         <ListGroup variant="flush">{comments}</ListGroup>

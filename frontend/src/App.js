@@ -36,6 +36,15 @@ function App() {
           <Route path="/categories">
             <CategoryList />
           </Route>
+          <Route
+            path="/posts/:id"
+            component={(props) => (
+              <Post
+                key={props.match.params.id}
+                id={props.match.params.id}
+              ></Post>
+            )}
+          />
           <Route path="/">
             <CategoryList></CategoryList>
             <CategoryCreateForm />
