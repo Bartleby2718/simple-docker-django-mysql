@@ -53,10 +53,10 @@ class CategoryCreateForm extends React.Component {
           <Form.Control
             type="text"
             placeholder="Enter the name of a new category..."
-            maxLength="50"
+            maxLength="20"
             onChange={this.handleChange}
           />
-          <Form.Text className="text-muted">50 characters max</Form.Text>
+          <Form.Text className="text-muted">20 characters max</Form.Text>
         </Form.Group>
         <Button type="submit" onClick={this.handleClick}>
           Create
