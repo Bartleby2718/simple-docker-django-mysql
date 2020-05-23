@@ -15,6 +15,7 @@ class CategoryCreateForm extends React.Component {
   };
 
   handleClick = (e) => {
+    e.preventDefault();
     const data = { name: this.state.name };
     fetch("http://localhost:8000/api/categories/", {
       method: "POST",
