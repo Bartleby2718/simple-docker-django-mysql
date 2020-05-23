@@ -9,7 +9,7 @@ class Category extends React.Component {
     super(props);
     this.state = {
       id: props.id,
-      name: "",
+      name: props.name,
       showingModal: false,
     };
   }
