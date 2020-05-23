@@ -26,9 +26,14 @@ class CategoryCreateForm extends React.Component {
       .then((res) => res.json())
       .then(
         (result) => {
-          this.setState({
-            name: result.name,
-          });
+          this.setState(
+            {
+              name: result.name,
+            },
+            () => {
+              window.location.reload();
+            }
+          );
         },
         (error) => {
           console.log(error);
