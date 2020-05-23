@@ -61,9 +61,11 @@ export default class PostList extends React.Component {
         Go to the next page
       </Button>
     ) : null;
-    let posts = this.state.posts.map((post) => (
-      <Post key={post.id} id={post.id} />
-    ));
+    let posts = this.state.posts.length ? (
+      this.state.posts.map((post) => <Post key={post.id} id={post.id} />)
+    ) : (
+      <h3>There are no posts in this category.</h3>
+    );
     return (
       <div>
         {posts}
