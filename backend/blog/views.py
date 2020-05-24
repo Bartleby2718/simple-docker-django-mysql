@@ -1,14 +1,22 @@
 from rest_framework import permissions, viewsets
 
 from .models import Category, Post, Comment, User
+from .permissions import UserPermission
 from .serializers import (
-    CategorySerializer, PostSerializer, CommentSerializer, UserSerializer)
+    CategorySerializer, PostSerializer, CommentSerializer,
+    UserSerializer, UserPrivateSerializer)
 
 
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    permission_classes = [permissions.AllowAny]
+    permission_classes = [UserPermission]
+
+    def get_serializer_class(self):
+        if self.action == 'create':
+            return UserPrivateSerializer
+        else:
+            return UserSerializer
 
 
 class CategoryViewSet(viewsets.ModelViewSet):
