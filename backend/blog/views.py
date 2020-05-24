@@ -1,10 +1,13 @@
 from rest_framework import permissions, viewsets
+from rest_framework.authtoken.models import Token
+from rest_framework.response import Response
+from rest_framework.views import APIView
 
 from .models import Category, Post, Comment, User
 from .permissions import UserPermission
 from .serializers import (
     CategorySerializer, PostSerializer, CommentSerializer,
-    UserSerializer, UserPrivateSerializer)
+    UserSerializer, UserPrivateSerializer, AuthTokenSerializer)
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -43,3 +46,13 @@ class CommentViewSet(viewsets.ModelViewSet):
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
     permission_classes = [permissions.AllowAny]
+
+
+class ObtainAuthToken(APIView):
+    def post(self, request, *args, **kwargs):
+        serializer = AuthTokenSerializer(data=request.data,
+                                         context={'request': request})
+        serializer.is_valid(raise_exception=True)
+        user = serializer.validated_data['user']
+        token, created = Token.objects.get_or_create(user=user)
+        return Response({'token': token.key})

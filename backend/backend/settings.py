@@ -29,6 +29,10 @@ ALLOWED_HOSTS = []
 
 AUTH_USER_MODEL = 'blog.User'
 
+AUTHENTICATION_BACKENDS = [
+    'blog.auth.MyBackend',
+]
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -41,6 +45,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'blog.apps.BlogConfig',
+    'rest_framework.authtoken',
 ]
 
 MIDDLEWARE = [
@@ -139,4 +144,7 @@ CORS_ORIGIN_WHITELIST = (
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 5,
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ]
 }

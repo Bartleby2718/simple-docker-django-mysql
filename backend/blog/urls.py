@@ -12,5 +12,6 @@ router.register(r'comments', views.CommentViewSet)
 
 # The API URLs are now determined automatically by the router.
 urlpatterns = [
+    path('auth-token/', views.ObtainAuthToken.as_view()),
     path('', include(router.urls)),
 ]
