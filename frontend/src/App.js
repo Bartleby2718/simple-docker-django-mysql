@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import CategoryCreateForm from "./CategoryCreateForm";
 import CategoryList from "./CategoryList";
+import LoginForm from "./LoginForm";
 import PostPage from "./PostPage";
 import PostForm from "./PostForm";
 import PostList from "./PostList";
@@ -48,6 +49,9 @@ function App() {
           />
           <Route path="/signup">
             <SignUpForm />
+          </Route>
+          <Route path="/login">
+            <LoginForm />
           </Route>
           <Route path="/">
             <CategoryCreateForm />
