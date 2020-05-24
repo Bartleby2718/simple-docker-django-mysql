@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import CategoryCreateForm from "./CategoryCreateForm";
 import CategoryList from "./CategoryList";
 import Post from "./Post";
+import PostForm from "./PostForm";
 import PostList from "./PostList";
 
 function App() {
@@ -31,6 +32,9 @@ function App() {
           />
           <Route path="/categories/">
             <h3>Please select a category.</h3>
+          </Route>
+          <Route path="/posts/new">
+            <PostForm />
           </Route>
           <Route
             path="/posts/:id"

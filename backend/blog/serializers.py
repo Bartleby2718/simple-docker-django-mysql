@@ -16,10 +16,12 @@ class CommentSerializer(serializers.ModelSerializer):
 
 
 class PostSerializer(serializers.ModelSerializer):
-    category = CategorySerializer()
+    category = CategorySerializer(read_only=True)
+    category_id = serializers.PrimaryKeyRelatedField(
+        write_only=True, source='category', queryset=Category.objects.all())
     comments = CommentSerializer(
         source='comment_set', many=True, read_only=True)
 
     class Meta:
         model = Post
-        fields = ('id', 'title', 'text', 'category', 'comments')
+        fields = '__all__'
