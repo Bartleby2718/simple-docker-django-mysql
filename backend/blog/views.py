@@ -1,7 +1,14 @@
 from rest_framework import permissions, viewsets
 
-from .models import Category, Post, Comment
-from .serializers import CategorySerializer, PostSerializer, CommentSerializer
+from .models import Category, Post, Comment, User
+from .serializers import (
+    CategorySerializer, PostSerializer, CommentSerializer, UserSerializer)
+
+
+class UserViewSet(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+    permission_classes = [permissions.AllowAny]
 
 
 class CategoryViewSet(viewsets.ModelViewSet):

@@ -1,6 +1,12 @@
 from rest_framework import serializers
 
-from .models import Category, Post, Comment
+from .models import Category, Post, Comment, User
+
+
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = '__all__'
 
 
 class CategorySerializer(serializers.ModelSerializer):
