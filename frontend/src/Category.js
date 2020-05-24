@@ -57,6 +57,7 @@ class Category extends React.Component {
         </Link>
 
         <DropdownButton
+          title=""
           variant="outline-primary"
           style={{ display: "inline-block" }}
         >
