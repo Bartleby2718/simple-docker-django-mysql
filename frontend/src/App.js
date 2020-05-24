@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import CategoryCreateForm from "./CategoryCreateForm";
 import CategoryList from "./CategoryList";
-import Post from "./Post";
+import PostPage from "./PostPage";
 import PostForm from "./PostForm";
 import PostList from "./PostList";
 
@@ -39,10 +39,10 @@ function App() {
           <Route
             path="/posts/:id"
             component={(props) => (
-              <Post
+              <PostPage
                 key={props.match.params.id}
                 id={props.match.params.id}
-              ></Post>
+              />
             )}
           />
           <Route path="/">

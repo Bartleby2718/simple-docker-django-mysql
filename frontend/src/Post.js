@@ -47,7 +47,7 @@ class Post extends React.Component {
       <Comment key={comment.id} id={comment.id} text={comment.text} />
     ));
     return (
-      <Card style={{ width: "18rem" }}>
+      <Card style={{ width: "100%" }}>
         <Card.Header>
           {"In "}
           <Link to={`/categories/${this.state.categoryId}`}>
