@@ -5,6 +5,7 @@ import CategoryList from "./CategoryList";
 import PostPage from "./PostPage";
 import PostForm from "./PostForm";
 import PostList from "./PostList";
+import SignUpForm from "./SignUpForm";
 
 function App() {
   return (
@@ -45,6 +46,9 @@ function App() {
               />
             )}
           />
+          <Route path="/signup">
+            <SignUpForm />
+          </Route>
           <Route path="/">
             <CategoryCreateForm />
           </Route>
