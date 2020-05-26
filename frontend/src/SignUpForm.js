@@ -9,6 +9,10 @@ class SignUpForm extends React.Component {
     this.state = {
       email: "",
       password: "",
+      password2: "",
+      passwordsMatch: false,
+      startedTypingPassword: false,
+      startedTypingPassword2: false,
     };
   }
 
@@ -17,7 +21,19 @@ class SignUpForm extends React.Component {
   };
 
   handlePasswordChange = (e) => {
-    this.setState({ password: e.target.value });
+    this.setState({
+      password: e.target.value,
+      passwordsMatch: e.target.value === this.state.password2,
+      startedTypingPassword: true,
+    });
+  };
+
+  handlePassword2Change = (e) => {
+    this.setState({
+      password2: e.target.value,
+      passwordsMatch: this.state.password === e.target.value,
+      startedTypingPassword2: true,
+    });
   };
 
   handleSubmit = (e) => {
@@ -34,6 +50,14 @@ class SignUpForm extends React.Component {
   };
 
   render() {
+    let confirmPasswordMessage = this.state.passwordsMatch ? (
+      <Form.Text style={{ color: "green" }}>The two passwords match.</Form.Text>
+    ) : (
+      <Form.Text style={{ color: "red" }}>
+        The two passwords don't match.
+      </Form.Text>
+    );
+
     return (
       <Container>
         <Form onSubmit={this.handleSubmit}>
@@ -46,7 +70,8 @@ class SignUpForm extends React.Component {
               value={this.state.email}
               onChange={this.handleEmailChange}
               maxLength={254}
-            ></Form.Control>
+              required
+            />
           </Form.Group>
           <Form.Group>
             <Form.Label>Password</Form.Label>
@@ -56,7 +81,23 @@ class SignUpForm extends React.Component {
               value={this.state.password}
               onChange={this.handlePasswordChange}
               maxLength={100}
-            ></Form.Control>
+              required
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>Confirm Password</Form.Label>
+            <Form.Control
+              type="password"
+              placeholder="Enter password again..."
+              value={this.state.password2}
+              onChange={this.handlePassword2Change}
+              maxLength={100}
+              required
+            />
+            {this.state.startedTypingPassword &&
+            this.state.startedTypingPassword2
+              ? confirmPasswordMessage
+              : null}
           </Form.Group>
           <Button type="submit">Sign up</Button>
         </Form>
