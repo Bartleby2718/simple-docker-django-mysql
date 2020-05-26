@@ -70,7 +70,7 @@ class PostForm extends React.Component {
       .then((res) => res.json())
       .then(
         (response) => {
-          window.location = `http://localhost:3000/posts/${response.id}/`;
+          window.location = `http://localhost:3200/posts/${response.id}/`;
         },
         (error) => {
           console.log(error);
