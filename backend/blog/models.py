@@ -16,6 +16,14 @@ class User(AbstractUser):
         ordering = ['id']
 
 
+class Profile(models.Model):
+    user = models.OneToOneField(
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    date_of_birth = models.DateField(null=True, blank=True)
+    homepage = models.URLField(null=True, blank=True)
+    bio = models.TextField(null=True, blank=True)
+
+
 class Category(models.Model):
     name = models.CharField(max_length=50)
 
@@ -48,3 +56,9 @@ class Comment(models.Model):
 def create_auth_token(sender, instance=None, created=False, **kwargs):
     if created:
         Token.objects.create(user=instance)
+
+
+@receiver(post_save, sender=settings.AUTH_USER_MODEL)
+def create_profile(sender, instance=None, created=False, **kwargs):
+    if created:
+        Profile.objects.create(user=instance)

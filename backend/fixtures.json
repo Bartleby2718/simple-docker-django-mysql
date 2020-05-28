@@ -72,6 +72,46 @@
         }
     },
     {
+        "model": "blog.profile",
+        "pk": 1,
+        "fields": {
+            "user": 1,
+            "date_of_birth": "2020-01-31",
+            "homepage": null,
+            "bio": null
+        }
+    },
+    {
+        "model": "blog.profile",
+        "pk": 2,
+        "fields": {
+            "user": 2,
+            "date_of_birth": "2019-02-22",
+            "homepage": null,
+            "bio": null
+        }
+    },
+    {
+        "model": "blog.profile",
+        "pk": 3,
+        "fields": {
+            "user": 3,
+            "date_of_birth": "2018-03-13",
+            "homepage": null,
+            "bio": null
+        }
+    },
+    {
+        "model": "blog.profile",
+        "pk": 4,
+        "fields": {
+            "user": 4,
+            "date_of_birth": "2017-04-04",
+            "homepage": null,
+            "bio": null
+        }
+    },
+    {
         "model": "blog.category",
         "pk": 1,
         "fields": {

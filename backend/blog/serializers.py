@@ -2,7 +2,13 @@ from django.contrib.auth import authenticate
 from django.utils.translation import gettext_lazy as _
 from rest_framework import serializers
 
-from .models import Category, Post, Comment, User
+from .models import Category, Post, Comment, User, Profile
+
+
+class ProfileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Profile
+        fields = '__all__'
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -13,6 +19,8 @@ class UserSerializer(serializers.ModelSerializer):
 
 class UserPrivateSerializer(serializers.ModelSerializer):
     """User serializer for private use. Shouldn't be used to reset password."""
+    profile = ProfileSerializer()
+
     class Meta:
         model = User
         fields = '__all__'
