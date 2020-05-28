@@ -1,1 +1,155 @@
-[{"model": "blog.category", "pk": 1, "fields": {"name": "math"}}, {"model": "blog.category", "pk": 2, "fields": {"name": "programming"}}, {"model": "blog.category", "pk": 3, "fields": {"name": "language"}}, {"model": "blog.category", "pk": 4, "fields": {"name": "random"}}, {"model": "blog.category", "pk": 5, "fields": {"name": "politics"}}, {"model": "blog.post", "pk": 1, "fields": {"title": "Fibonacci numbers", "text": "The Fibonacci Sequence is the series of numbers: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, ... The next number is found by adding up the two numbers before it.", "category": 1}}, {"model": "blog.post", "pk": 2, "fields": {"title": "dynamic programming", "text": "Dynamic Programming is a method for solving a complex problem by breaking it down into a collection of simpler subproblems, solving each of those subproblems just once, and storing their solutions using a memory-based data structure (array, map,etc).", "category": 2}}, {"model": "blog.post", "pk": 3, "fields": {"title": "divide and conquer", "text": "In computer science, divide and conquer is an algorithm design paradigm based on multi-branched recursion. A divide-and-conquer algorithm works by recursively breaking down a problem into two or more sub-problems of the same or related type, until these become simple enough to be solved directly.", "category": 2}}, {"model": "blog.post", "pk": 4, "fields": {"title": "brexit", "text": "DescriptionBrexit is the withdrawal of the United Kingdom from the European Union.", "category": 5}}, {"model": "blog.post", "pk": 5, "fields": {"title": "obamacare", "text": "Obamacare is the Patient Protection and Affordable Care Act of 2010.", "category": 5}}, {"model": "blog.post", "pk": 6, "fields": {"title": "impeachment", "text": "DescriptionImpeachment is the process by which a legislative body levels charges against a government official.", "category": 5}}, {"model": "blog.comment", "pk": 1, "fields": {"post": 1, "text": "awesome"}}, {"model": "blog.comment", "pk": 2, "fields": {"post": 1, "text": "beautiful"}}, {"model": "blog.comment", "pk": 3, "fields": {"post": 1, "text": "charming"}}, {"model": "blog.comment", "pk": 4, "fields": {"post": 3, "text": "dope"}}]
+[
+    {
+        "model": "blog.user",
+        "pk": 1,
+        "fields": {
+            "password": "",
+            "last_login": null,
+            "is_superuser": false,
+            "first_name": "",
+            "last_name": "",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2020-05-28T13:27:59.774Z",
+            "username": null,
+            "email": "bartleby2718@gmail.com",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "blog.category",
+        "pk": 1,
+        "fields": {
+            "name": "math"
+        }
+    },
+    {
+        "model": "blog.category",
+        "pk": 2,
+        "fields": {
+            "name": "programming"
+        }
+    },
+    {
+        "model": "blog.category",
+        "pk": 3,
+        "fields": {
+            "name": "language"
+        }
+    },
+    {
+        "model": "blog.category",
+        "pk": 4,
+        "fields": {
+            "name": "random"
+        }
+    },
+    {
+        "model": "blog.category",
+        "pk": 5,
+        "fields": {
+            "name": "politics"
+        }
+    },
+    {
+        "model": "blog.post",
+        "pk": 1,
+        "fields": {
+            "title": "Fibonacci numbers",
+            "text": "The Fibonacci Sequence is the series of numbers: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, ... The next number is found by adding up the two numbers before it.",
+            "category": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "blog.post",
+        "pk": 2,
+        "fields": {
+            "title": "dynamic programming",
+            "text": "Dynamic Programming is a method for solving a complex problem by breaking it down into a collection of simpler subproblems, solving each of those subproblems just once, and storing their solutions using a memory-based data structure (array, map,etc).",
+            "category": 2,
+            "user": 1
+        }
+    },
+    {
+        "model": "blog.post",
+        "pk": 3,
+        "fields": {
+            "title": "divide and conquer",
+            "text": "In computer science, divide and conquer is an algorithm design paradigm based on multi-branched recursion. A divide-and-conquer algorithm works by recursively breaking down a problem into two or more sub-problems of the same or related type, until these become simple enough to be solved directly.",
+            "category": 2,
+            "user": 1
+        }
+    },
+    {
+        "model": "blog.post",
+        "pk": 4,
+        "fields": {
+            "title": "brexit",
+            "text": "DescriptionBrexit is the withdrawal of the United Kingdom from the European Union.",
+            "category": 5,
+            "user": 1
+        }
+    },
+    {
+        "model": "blog.post",
+        "pk": 5,
+        "fields": {
+            "title": "obamacare",
+            "text": "Obamacare is the Patient Protection and Affordable Care Act of 2010.",
+            "category": 5,
+            "user": 1
+        }
+    },
+    {
+        "model": "blog.post",
+        "pk": 6,
+        "fields": {
+            "title": "impeachment",
+            "text": "DescriptionImpeachment is the process by which a legislative body levels charges against a government official.",
+            "category": 5,
+            "user": 1
+        }
+    },
+    {
+        "model": "blog.comment",
+        "pk": 1,
+        "fields": {
+            "post": 1,
+            "text": "awesome"
+        }
+    },
+    {
+        "model": "blog.comment",
+        "pk": 2,
+        "fields": {
+            "post": 1,
+            "text": "beautiful"
+        }
+    },
+    {
+        "model": "blog.comment",
+        "pk": 3,
+        "fields": {
+            "post": 1,
+            "text": "charming"
+        }
+    },
+    {
+        "model": "blog.comment",
+        "pk": 4,
+        "fields": {
+            "post": 3,
+            "text": "dope"
+        }
+    },
+    {
+        "model": "authtoken.token",
+        "pk": "153fd49ed2d9d25e1f38359503f714499c6b7d45",
+        "fields": {
+            "user": 1,
+            "created": "2020-05-28T13:27:59.801Z"
+        }
+    }
+]
