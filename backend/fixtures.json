@@ -18,6 +18,60 @@
         }
     },
     {
+        "model": "blog.user",
+        "pk": 2,
+        "fields": {
+            "password": "",
+            "last_login": null,
+            "is_superuser": false,
+            "first_name": "",
+            "last_name": "",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2020-05-28T13:34:21.341Z",
+            "username": null,
+            "email": "jp9vd@virginia.edu",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "blog.user",
+        "pk": 3,
+        "fields": {
+            "password": "",
+            "last_login": null,
+            "is_superuser": false,
+            "first_name": "",
+            "last_name": "",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2020-05-28T13:34:21.374Z",
+            "username": null,
+            "email": "playgrammer@gmail.com",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "blog.user",
+        "pk": 4,
+        "fields": {
+            "password": "",
+            "last_login": null,
+            "is_superuser": false,
+            "first_name": "",
+            "last_name": "",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2020-05-28T13:34:21.404Z",
+            "username": null,
+            "email": "johnny0418@naver.com",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
         "model": "blog.category",
         "pk": 1,
         "fields": {
@@ -117,7 +171,8 @@
         "pk": 1,
         "fields": {
             "post": 1,
-            "text": "awesome"
+            "text": "awesome",
+            "user": 2
         }
     },
     {
@@ -125,7 +180,8 @@
         "pk": 2,
         "fields": {
             "post": 1,
-            "text": "beautiful"
+            "text": "beautiful",
+            "user": 3
         }
     },
     {
@@ -133,7 +189,8 @@
         "pk": 3,
         "fields": {
             "post": 1,
-            "text": "charming"
+            "text": "charming",
+            "user": 4
         }
     },
     {
@@ -141,7 +198,16 @@
         "pk": 4,
         "fields": {
             "post": 3,
-            "text": "dope"
+            "text": "dope",
+            "user": 2
+        }
+    },
+    {
+        "model": "authtoken.token",
+        "pk": "124cf0d439b9d3f3dae68eda7812ada5100b9646",
+        "fields": {
+            "user": 4,
+            "created": "2020-05-28T13:34:21.429Z"
         }
     },
     {
@@ -150,6 +216,22 @@
         "fields": {
             "user": 1,
             "created": "2020-05-28T13:27:59.801Z"
+        }
+    },
+    {
+        "model": "authtoken.token",
+        "pk": "52de6090ecd9c6e35ed7de5bb577dd17c2df7079",
+        "fields": {
+            "user": 2,
+            "created": "2020-05-28T13:34:21.356Z"
+        }
+    },
+    {
+        "model": "authtoken.token",
+        "pk": "8747ad2675516ab6574265fb963a91b42df85fe9",
+        "fields": {
+            "user": 3,
+            "created": "2020-05-28T13:34:21.386Z"
         }
     }
 ]
